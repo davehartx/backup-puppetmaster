@@ -1,0 +1,23 @@
+# Disable filebucket by default for all File resources:
+File { backup => false }
+
+#node fqdn of the hostname or comma separated
+
+node /^davehartx(1|3).*$/ {
+   include ssh
+}
+
+node 'davehartx4.mylabserver.com' {
+   include ntp
+}
+node default {
+include motd
+     notify  { "This is my deafult ":  }
+#     user { 'add_user':
+#	name 	=> 'dxhart',
+#	groups	=> 	'wheel',
+#	managehome	=>	true,
+#	password	=> 	'$1$zjX9OHcx$wH5BNv/AX9b25x9VRylOo0',
+#	ensure		=> 	present
+# }
+}
